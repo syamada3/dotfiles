@@ -1,0 +1,266 @@
+// https://code.visualstudio.com/api/references/when-clause-contexts
+[
+  // ===================================================================================
+  // ==                                   General                                     ==
+  // ===================================================================================
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+a j",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a shift+j",
+    "command": "workbench.action.closePanel",
+    "when": "editorTextFocus || !inputFocus || panelFocus"
+  },
+  {
+    "key": "ctrl+a e",
+    "command": "workbench.action.closeSidebar",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a w",
+    "command": "workbench.action.quickSwitchWindow",
+    "when": "editorTextFocus || !inputFocus|| panelFocus"
+  },
+  {
+    "key": "ctrl+a ctrl+w",
+    "command": "workbench.action.quickSwitchWindow",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a v",
+    "command": "editor.action.pasteAs",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  // ===================================================================================
+  // ==                                    Debug                                      ==
+  // ===================================================================================
+  {
+    "key": "ctrl+a d",
+    "command": "workbench.action.debug.start",
+    "when": "(debuggersAvailable && debugState == 'inactive') && (editorTextFocus || !inputFocus)"
+  },
+  // ===================================================================================
+  // ==                                   Suggest                                     ==
+  // ===================================================================================
+  {
+    "key": "tab",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "shift+tab",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  // ===================================================================================
+  // ==                                   Explorer                                    ==
+  // ===================================================================================
+  {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.view.explorer",
+    "when": "viewContainer.workbench.view.explorer.enabled"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "Escape",
+    "command": "workbench.action.closeSidebar",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.closeSidebar",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "tab",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && !inputFocus && !explorerResourceIsFolder"
+  },
+  {
+    "key": "tab",
+    "command": "list.toggleExpand",
+    "when": "filesExplorerFocus && !inputFocus && explorerResourceIsFolder"
+  },
+  {
+    "key": "Enter",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "filesExplorer.openFilePreserveFocus"
+        // "workbench.action.closeSidebar"
+      ]
+    },
+    "when": "filesExplorerFocus && !inputFocus && !explorerResourceIsFolder"
+  },
+  // ===================================================================================
+  // ==                                    Editor                                     ==
+  // ===================================================================================
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.files.save",
+    "when": "editorTextFocus"
+  },
+  {
+    "command": "editor.action.formatDocument",
+    "key": "ctrl+f",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+a backspace",
+    "command": "workbench.action.closeAllEditors",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a f",
+    "command": "actions.find",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+a shift+f",
+    "command": "workbench.action.findInFiles",
+    "when": "editorTextFocus"
+  },
+  //* ===================================================================================
+  //* ==                                  Extensions                                   ==
+  //* ===================================================================================
+  {
+    "key": "ctrl+a p",
+    "command": "projectManager.listProjectsNewWindow",
+    "when": "editorTextFocus || !inputFocus || panelFocus"
+  },
+  {
+    "key": "ctrl+a shift+p",
+    "command": "projectManager.saveProject",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a a",
+    "command": "workbench.action.toggleActivityBarVisibility",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a `",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a m",
+    "command": "markdown.showPreviewToSide",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a c",
+    "command": "workbench.action.terminal.openNativeConsole",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a o",
+    "command": "workbench.action.files.openFileWithDefaultApplication",
+    "when": "editorTextFocus || !inputFocus"
+  },
+  {
+    "key": "ctrl+a 0",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusFirstEditorGroup",
+        "foam-vscode.open-daily-note",
+        "markdown.showPreviewToSide",
+        "workbench.action.focusFirstEditorGroup"
+      ]
+    },
+    "when": "editorTextFocus || !inputFocus"
+  },
+  //* ===================================================================================
+  //* ==                                    Deleted                                    ==
+  //* ===================================================================================
+  {
+    "key": "ctrl+p",
+    "command": "-extension.vim_ctrl+p",
+    "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-p> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "shift+cmd+p",
+    "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "cmd+s",
+    "command": "-workbench.action.files.save"
+  },
+  {
+    "key": "ctrl+shift+2",
+    "command": "-autoDocstring.generateDocstring",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-python.refreshTensorBoard",
+    "when": "python.hasActiveTensorBoardSession"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execInREPL",
+    "when": "config.python.REPL.sendToNativeREPL && editorTextFocus && !isCompositeNotebook && !jupyter.ownsSelection && !notebookEditorFocused && editorLangId == 'python'"
+  },
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal",
+    "when": "editorTextFocus && !findInputFocussed && !isCompositeNotebook && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  {
+    "key": "enter",
+    "command": "-python.execInInteractiveWindowEnter",
+    "when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !inlineChatFocused && !notebookCellListFocused && activeEditor == 'workbench.editor.interactive'"
+  },
+  {
+    "key": "enter",
+    "command": "-python.execInREPLEnter",
+    "when": "isCompositeNotebook && !config.interactiveWindow.executeWithShiftEnter && !inlineChatFocused && !notebookCellListFocused && activeEditor == 'workbench.editor.repl'"
+  }
+  //* ===================================================================================
+  //* ==                         Added settings (should arrange)                        ==
+  //* ===================================================================================
+]
